@@ -123,7 +123,7 @@ $(document).ready(function(){
 		ctx.arc(cx, cy, 100, 1.5 * Math.PI, current_angle);
 		ctx.closePath();
 		//ctx.lineTo(cx, cy);
-		ctx.fillStyle = 'rgb(49, 182, 232)'; // 재생 바
+		ctx.fillStyle = 'rgba(255, 255, 255, 0.27)'; // 재생 바
 		ctx.fill(); // or context.fill()
 		//ctx.closePath();
 
