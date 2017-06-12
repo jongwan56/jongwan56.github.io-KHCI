@@ -82,7 +82,7 @@ $(document).ready(function() {
     play_song(parseInt(data));
   });
 
-  function play_song(i) {
+  function play_song(data) {
     for (i = 0; i < play_list.length; i++){
       if (i == data){
         $("[id=song]")[i].style = "border-bottom: 5px solid #ccddff";
@@ -93,10 +93,10 @@ $(document).ready(function() {
     }
     
     audio.pause();
-    audio = new Audio("./audio/" + play_list[i].title + ".mp3");
+    audio = new Audio("./audio/" + play_list[data].title + ".mp3");
     audio.play();
-    console.log(play_list[i]);
-    current_song = i;
+    console.log(play_list[data]);
+    current_song = data;
     render(current_song);
 
     audio.addEventListener("timeupdate", timeUpdate, true);
