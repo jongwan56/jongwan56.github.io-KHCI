@@ -115,7 +115,12 @@
     }
    });
    $(this).find('img').click(function(){
-     play_list.push($(this).attr("alt"));
+     var i = $(this).data("selector");
+     //console.log(songs[i].title);
+     document.getElementById("playlist").innerHTML +=
+              '<img id="song" data-selector=' + play_list.length + ' src=' + songs[i]["image"] + ' draggable="true" style="border-bottom: 5px solid #fff" title="' + songs[i]["title"] + '">';
+     
+     play_list.push(songs[i]);
      //alert($(this).attr("alt"););
    });
   }

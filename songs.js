@@ -1,3 +1,5 @@
+var play_list = [];
+
 var songs = [{
     album: "RED PLANET",
     title: "우주를 줄게",

@@ -1,8 +1,5 @@
 function main() {
-
-
   var audio = new Audio();
-
   var title_list = [];
   var singer_list = [];
 
