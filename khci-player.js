@@ -101,7 +101,7 @@ $(document).ready(function() {
           style: 'width : 80px; height : 80px'
         });
         $li.append('<a href="#">');
-        $li.find('a').append($img).append(songs[i]['title'])
+        $li.find('a').append($img).append(songs[i]['title'] + " " + songs[i]["eng_title"])
       } else if (item.value == songs[i]["singer"] || item.value == songs[i]["eng_singer"]) {
         $img.attr({
           src: songs[i]["image"],
@@ -134,7 +134,7 @@ $(document).ready(function() {
     }
 
     audio.pause();
-    audio = new Audio("./audio/" + play_list[data].title + ".mp3");
+    audio = new Audio("./audio/" + play_list[data]["title"] + ".mp3");
     audio.play();
     console.log(play_list[data]);
     current_song = data;
