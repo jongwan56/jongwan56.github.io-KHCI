@@ -155,8 +155,14 @@ function main() {
         play_song(current_song + 1);
       }
     });
-
   }
+
+  $(function() {
+  	$("#vol_control").change( function() {
+  		console.log(this.value);
+      audio.volume = this.value / 100;
+  	});
+  });
 
   // $("#play").click(function() {
   //   audio.play();
