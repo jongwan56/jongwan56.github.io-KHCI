@@ -45,7 +45,7 @@ function main() {
     title_list = [];
     singer_list = [];
     $("#playlist").html("");
-  } 
+  }
   $("#search_input").autocomplete({
     minLength: 2,
     source: title_list.concat(singer_list),
@@ -335,7 +335,7 @@ function main() {
   pressed = false; //is it grabbed? set to true for rotation without grabbing
   timeConstant = 325; //ms dampening in autospin mode, time to snap in snap mode
   target = 0; //target angle to which the animation will spin the element after mouse release
-  rotation = -72; //store the current object rotation !!Do NOT manually change unless you REALLY know what you are doing!!
+  rotation = 0; //store the current object rotation !!Do NOT manually change unless you REALLY know what you are doing!!
   increments = 10; //in snapping mode, how many increments you want to have
   var snap = true; //snapping mode on/off
   //END SETTINGS
@@ -454,9 +454,10 @@ function main() {
 
   function setSpinnerPos() {
     var temp_angle = rotation;
-    console.log(temp_angle);
     rotate(0);
 
+    var bounds = spinner.getBoundingClientRect(); //get CSS bounds of the object
+    center = new Point((bounds.left + (spinner.offsetWidth * 0.78)), (bounds.top + (spinner.offsetHeight / 2)));
     $("#test").position({
       my: "center",
       at: "center+10% top+22%",
@@ -464,10 +465,7 @@ function main() {
       collision: "flip"
     })
 
-    var bounds = spinner.getBoundingClientRect(); //get CSS bounds of the object
-    center = new Point((bounds.left + (spinner.offsetWidth * 0.78)), (bounds.top + (spinner.offsetHeight / 2)));
-
-    rotate(-temp_angle);
+    rotate(temp_angle);
 
   }
 
@@ -635,12 +633,4 @@ function main() {
       }
     }
   }
-
-  $('#square').click(function(){
-    	$('.library').toggle();
-    	$('.playlist').toggle();
-    	$('.player').toggle();
-    	$('#vol_control').toggle();
-      setSpinnerPos();
-	});
 }

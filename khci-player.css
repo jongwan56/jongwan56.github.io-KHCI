@@ -90,21 +90,11 @@ body {
   transform-origin: 76% 50%;
   /*z-index: 0;*/
   user-drag: none;
-<<<<<<< HEAD
-user-select: none;
--moz-user-select: none;
--webkit-user-drag: none;
--webkit-user-select: none;
--ms-user-select: none;
-
-transform:  rotateZ(-72deg);
-=======
   user-select: none;
   -moz-user-select: none;
   -webkit-user-drag: none;
   -webkit-user-select: none;
   -ms-user-select: none;
->>>>>>> 2f51965475c4d504391408e0a9fc18e27562e602
 }
 
 /*#Record {
