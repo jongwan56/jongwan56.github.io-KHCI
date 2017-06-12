@@ -1,4 +1,4 @@
-$(document).ready(function() {
+function main() {
   var audio = new Audio();
 
   var title_list = [];
@@ -614,4 +614,4 @@ $(document).ready(function() {
     }
   }
 
-});
+}

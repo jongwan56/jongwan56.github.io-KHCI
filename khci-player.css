@@ -43,6 +43,12 @@ body {
   overflow: auto;
 }
 
+.library {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 500px;
+}
+
 /*.play {
   font-size: 16px;
   color: #fff;
@@ -53,7 +59,7 @@ body {
   font-family: 'Arbutus', cursive;
 }*/
 
-.title {
+.title2 {
   font-size: 24px;
   color: #1b5ac2;
   margin-left: 5px;
