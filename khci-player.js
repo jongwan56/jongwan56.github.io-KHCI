@@ -45,7 +45,7 @@ $(document).ready(function() {
         if (ui.item.value == songs[i]["title"]) {
           if (confirm(songs[i]["title"] + "을/를 재생 목록에 추가하시겠습니까?")) {
             document.getElementById("playlist").innerHTML +=
-              '<img id="song" data-selector=' + play_list.length + ' src=' + songs[i]["image"] + ' draggable="true">';
+              '<img id="song" data-selector=' + play_list.length + ' src=' + songs[i]["image"] + ' draggable="true" style="border-bottom: 5px solid #fff">';
             play_list.push(songs[i]);
           } else {
             $("#search_input").val('')
@@ -83,6 +83,15 @@ $(document).ready(function() {
   });
 
   function play_song(i) {
+    for (i = 0; i < play_list.length; i++){
+      if (i == data){
+        $("[id=song]")[i].style = "border-bottom: 5px solid #ccddff";
+      }
+      else{
+        $("[id=song]")[i].style = "border-bottom: 5px solid #fff";
+      }
+    }
+    
     audio.pause();
     audio = new Audio("./audio/" + play_list[i].title + ".mp3");
     audio.play();
