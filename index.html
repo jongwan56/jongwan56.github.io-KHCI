@@ -3,6 +3,7 @@
 
 <head>
 	<link href="khci-player.css" rel="stylesheet" />
+	<link href="zoomer.css" rel="stylesheet" />
 	<link href="jquery/css/ui-lightness/jquery-ui-1.10.0.custom.css" rel="stylesheet" />
 	<link href="https://fonts.googleapis.com/css?family=Arbutus|Open+Sans" rel="stylesheet">
 	<title>K-HCI</title>
@@ -14,31 +15,40 @@
 	<script src="./songs.js"></script>
 	<script src="jquery/js/jquery-1.9.0.min.js"></script>
 	<script src="jquery/js/jquery-ui-1.10.0.custom.min.js"></script>
+	<br/><!-- 임시 라이브러리 버튼-->
+	<div id="square"></div>
+	<style contenteditable>
+	#square {
+		width: 10px;
+		height: 10px;
+		background: red;
+	}
+	</style>
+	<br/><!-- 임시 라이브러리 버튼-->
 	<div class="center-div">
-		<div class="title">K-HCI Music Player</div>
+		<div class="title2">K-HCI Music Player</div>
 		<div id='search_bar'>
 			<input type='text' placeholder='제목' id='search_input'>
 			<button id='search_button'> 검색 </button>
 		</div>
-		<div class="library" hidden="true">
-			<canvas id="library" width="500" height="100" style="border:1px solid"></canvas>
-			<script>
-				var c = document.getElementById("library");
-				var ctx = c.getContext("2d");
-				ctx.rect(20, 20, 460, 60);
-				ctx.stroke();
-
-				var song1 = c.getContext("2d");
-				song1.rect(25, 22, 20, 56);
-				song1.stroke();
-			</script>
+		<div class="library">
+      <ul class="thumb">
+			<li><a href="#"><img src="1.jpg" alt="123" /></a></li>
+			<li><a href="#"><img src="1.jpg" alt="123" /></a></li>
+			<li><a href="#"><img src="1.jpg" alt="123" /></a></li>
+			<li><a href="#"><img src="1.jpg" alt="123" /></a></li>
+			<li><a href="#"><img src="1.jpg" alt="123" /></a></li>
+			<li><a href="#"><img src="1.jpg" alt="123" /></a></li>
+			<li><a href="#"><img src="1.jpg" alt="123" /></a></li>
+			<li><a href="#"><img src="1.jpg" alt="123" /></a></li>
+      </ul>
 		</div>
-		<div class="playlist" id="playlist">
+		<div class="playlist" id="playlist" hidden="true">
 			<img id="song" data-selector=0 src="./images/b4.png" draggable="true">
 			<img id="song" data-selector=1 src="./images/bb.png" draggable="true">
 			<img id="song" data-selector=2 src="./images/akmu.png" draggable="true">
 		</div>
-		<div class="player" draggable="false">
+		<div class="player" draggable="false" hidden="true">
 			<canvas id="Record" width="498" height="298" style="border:1px solid #1b5ca2" ondragover="allowDrop(event)"></canvas>
 			<div id="angle"></div>
 
@@ -74,5 +84,15 @@
 	function allowDrop(ev) {
 		ev.preventDefault();
 	}
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+	main();
+	$('#square').click(function(){
+    	$('.library').toggle();
+    	$('.playlist').toggle();
+    	$('.player').toggle();
+	});
+});
 </script>
 </html>
