@@ -36,6 +36,7 @@ $(document).ready(function() {
     minLength: 2,
     source: title_list,
     focus: function(event, ui) {
+      $("#search_input").val('')
       $("#search_input").val(ui.item.value)
       return false;
     },
@@ -83,7 +84,7 @@ $(document).ready(function() {
 
   function play_song(i) {
     audio.pause();
-    audio = new Audio(play_list[i].audio);
+    audio = new Audio("./audio/" + play_list[i].title + ".mp3");
     audio.play();
     console.log(play_list[i]);
     current_song = i;
