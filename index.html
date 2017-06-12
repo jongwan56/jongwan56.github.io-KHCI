@@ -38,11 +38,11 @@
 			<img id="song" data-selector=1 src="./images/bb.png" draggable="true">
 			<img id="song" data-selector=2 src="./images/akmu.png" draggable="true">
 		</div>
-		<div class="player">
+		<div class="player" draggable="false">
 			<canvas id="Record" width="498" height="298" style="border:1px solid #1b5ca2" ondragover="allowDrop(event)"></canvas>
 			<div id="angle"></div>
 
-			<img class="block" id="test" src="./images/tonearm.png" />
+			<img class="block" id="test" src="./images/tonearm.png" draggable="false">
 
 			<script>
 				var c = document.getElementById("Record");
@@ -61,9 +61,9 @@
 				ctx2.fillStyle = "red";
 				ctx2.fill();
 			</script>
-			<button class="play" id="play">play</button>
+			<!-- <button class="play" id="play">play</button>
 			<button class="play" id="pause">pause</button>
-			<button class="play" id="stop">stop</button>
+			<button class="play" id="stop">stop</button> -->
 		</div>
 
 

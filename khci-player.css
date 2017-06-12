@@ -43,7 +43,7 @@ body {
   overflow: auto;
 }
 
-.play {
+/*.play {
   font-size: 16px;
   color: #fff;
   padding: 10px;
@@ -51,7 +51,7 @@ body {
   outline: none;
   background: #1b5ac2;
   font-family: 'Arbutus', cursive;
-}
+}*/
 
 .title {
   font-size: 24px;
@@ -73,8 +73,14 @@ body {
   -webkit-transform-origin: 76% 50%; /* Chrome, Safari, Opera */
   transform-origin: 76% 50%;
   /*z-index: 0;*/
+  user-drag: none;
+user-select: none;
+-moz-user-select: none;
+-webkit-user-drag: none;
+-webkit-user-select: none;
+-ms-user-select: none;
 }
 
-#Record {
-  z-index: 3;
-}
+/*#Record {
+  z-index: 0;
+}*/

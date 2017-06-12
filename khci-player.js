@@ -99,17 +99,17 @@ $(document).ready(function() {
 
   }
 
-  $("#play").click(function() {
-    audio.play();
-  });
-  $("#pause").click(function() {
-    audio.pause();
-  });
-  $("#stop").click(function() {
-    audio.pause();
-    audio.currentTime = 0;
-    timeUpdate();
-  });
+  // $("#play").click(function() {
+  //   audio.play();
+  // });
+  // $("#pause").click(function() {
+  //   audio.pause();
+  // });
+  // $("#stop").click(function() {
+  //   audio.pause();
+  //   audio.currentTime = 0;
+  //   timeUpdate();
+  // });
 
   clearPlaylist();
 
@@ -227,7 +227,18 @@ $(document).ready(function() {
     }
   });
 
-  $(window).on('mouseup', function(e) {
+  $('#Record').on('mouseup', function(e) {
+    if (isDown === true) {
+      if (moving && inCircle && mouseOnCurrent === false) {
+        audio.currentTime = angle * audio.duration / (2 * Math.PI);
+      }
+      isDown = false;
+      moving = false;
+      render(current_song);
+    }
+  });
+
+  $('#test').on('mouseup', function(e) {
     if (isDown === true) {
       if (moving && inCircle && mouseOnCurrent === false) {
         audio.currentTime = angle * audio.duration / (2 * Math.PI);
@@ -273,6 +284,7 @@ $(document).ready(function() {
 	//END SETTINGS
 	spinner = document.getElementById('test'); //the object on which this whole thing runs
 
+  spinner.ondragstart = function() { return false; };
 	$("#test").position({
     my:        "center",
     at:        "center+10% top+22%",
