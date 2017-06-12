@@ -36,6 +36,7 @@ $(document).ready(function() {
 
   function clearPlaylist() {
     title_list = [];
+    singer_list = [];
     $("#playlist").html("");
   }
 
@@ -52,8 +53,10 @@ $(document).ready(function() {
         if (ui.item.value == songs[i]["title"]) {
           if (confirm(songs[i]["title"] + "을/를 재생 목록에 추가하시겠습니까?")) {
             document.getElementById("playlist").innerHTML +=
-              '<img id="song" data-selector=' + play_list.length + ' src=' + songs[i]["image"] + ' draggable="true" style="border-bottom: 5px solid #fff">';
+              '<img id="song" data-selector=' + play_list.length + ' src=' + songs[i]["image"] + ' draggable="true" style="border-bottom: 5px solid #fff" title="' + songs[i]["title"] + '">';
             play_list.push(songs[i]);
+            $("#search_input").val('')
+            $("#search_input").val(songs[i]["title"])
           } else {
             $("#search_input").val('')
           }
@@ -62,12 +65,19 @@ $(document).ready(function() {
             for (j = 0; j < songs.length; j++) {
               if (songs[i]["album"] == songs[j]["album"]) {
                 document.getElementById("playlist").innerHTML +=
-                  '<img id="song" data-selector=' + play_list.length + ' src=' + songs[j]["image"] + ' draggable="true" style="border-bottom: 5px solid #fff">';
+                  '<img id="song" data-selector=' + play_list.length + ' src=' + songs[j]["image"] + ' draggable="true" style="border-bottom: 5px solid #fff" title="' + songs[j]["title"] + '">';
                 play_list.push(songs[j]);
               }
             }
+            $("#search_input").val('')
+            $("#search_input").val(songs[i]["singer"])
+            break;
+          } else {
+            $("#search_input").val('')
             break;
           }
+        } else {
+          $("#search_input").val('')
         }
       }
       return false;
@@ -207,6 +217,7 @@ $(document).ready(function() {
     var album = c.getContext("2d");
     var img = new Image();
     img.src = play_list[i].image;
+    img.title = play_list[i].title;
     album.drawImage(img, 180, 80, 140, 140);
 
     ctx.beginPath();
