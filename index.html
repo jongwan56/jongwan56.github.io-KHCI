@@ -93,8 +93,8 @@ $(document).ready(function(){
 	main();
   $('.thumb').html("");
   for(var i=0 ; i < songs.length ; i++){
-    $('.thumb').append('<li><a href="#"><img src="'+songs[i].image+'" alt="'+songs[i].title+'" data-selector='+i+' /></a></li>');
-  }
+    $('.thumb').append('<li><a href="#"><div class="thumb_div"><img src="./images1/'+songs[i].album+'.jpg" alt="'+songs[i].title+'" data-selector='+i+' /></a></div></li>');
+  }////////////////
 
  	$('ul.thumb li').Zoomer({speedView:200,speedRemove:400,altAnim:true,speedTitle:400,debug:false});
 });

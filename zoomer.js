@@ -52,26 +52,25 @@
 
    function unfoldImage(elem) {
     $(elem).css({
-     'z-index': '10'
+     //'z-index': '10'
     });
     $(elem).addClass("hover").stop().animate({
      marginTop: '-0px',
-     marginLeft: '-50px',
+     marginLeft: '-25px',
      top: '0%',
      left: '0%',
      width: '100px',
-     height: '100px',
-     paddingLeft: '8px'
+     height: '95px'
     }, d.speedView);
    }
 
    function viewTitle(elem) {
-    var a = $(elem).attr("alt");
+    var a = $(elem).find('img').attr("alt");
      if (a.length != 0) {
-      $(elem).closest('li').prepend('<span class="title">' + a + '</span>');
+      $(elem).prepend('<span class="title">' + a + '</span>');
       $('.title').animate({
-       marginLeft: '-50px',
-       marginTop: '80px'
+       marginLeft: '0px',
+       marginTop: '95px'
       }, d.speedTitle).css({
        'z-index': '11',
        'position': 'absolute',
@@ -89,23 +88,23 @@
      marginLeft: '0',
      top: '0',
      left: '0',
-     width: '100%',
-     height: '100px',
-     paddingLeft: '8px'
+     width: '100px',
+     height: '95px',
+     padding: '0px'
     }, d.speedRemove);
     $(elem).closest('li').find('.title').remove()
    }
 
-   $(this).find('img').mouseover(function() {
+   $(this).find('div').mouseover(function() {
     if(!mouseoverSong){
       mouseoverSong = true;
       unfold(this);
     }
    });
-   $(this).closest('li').find('span').mouseover(function() {
-    alert("haha")
-   });
-   $(this).find('img').mouseleave(function() {
+   //$(this).closest('li').find('span').mouseover(function() {
+   // alert("haha")
+   //});
+   $(this).find('div').mouseleave(function() {
     if(mouseoverSong){
       mouseoverSong = false;
       //$(this).closest('li').find('.title').mouseover(function() {mouseoverSong = true;console.log('haha')});
@@ -127,10 +126,10 @@
 /* For test
   $('#square').click(function(){
     $('.thumb').toggle();
-  });
+  });*/
   $('span').mouseover(function() {
     alert("haha")
   });
-*/
+
  }
 })(jQuery);
