@@ -1,5 +1,6 @@
 function main() {
 
+
   var audio = new Audio();
 
   var title_list = [];
@@ -46,15 +47,15 @@ function main() {
     singer_list = [];
     $("#playlist").html("");
   }
-  
+
   function initLibrary(){
     $('.thumb').html("");
     for(var i=0 ; i < songs.length ; i++){
       $('.thumb').append('<li><a href="#"><img src="'+songs[i].image+'" alt="'+songs[i].image.title+'" /></a></li>');
     }
   }
-  
-  
+
+
   $("#search_input").autocomplete({
     minLength: 2,
     source: title_list.concat(singer_list),
@@ -178,7 +179,7 @@ function main() {
 
   clearPlaylist();
   initLibrary();
-  
+
   function render(i) {
     if (i == -1) return;
     ctx.clearRect(0, 0, 500, 300);
@@ -354,14 +355,14 @@ function main() {
   spinner.ondragstart = function() {
     return false;
   };
-  $("#test").position({
-    my: "center",
-    at: "center+10% top+22%",
-    of: $("#Record"),
-    collision: "flip"
-  })
-
-  rotate(72)
+  // $("#test").position({
+  //   my: "center",
+  //   at: "center+10% top+22%",
+  //   of: $("#Record"),
+  //   collision: "flip"
+  // })
+  //
+  // rotate(72)
 
   // var demo = document.getElementById('demo'); //select the element to be used for output
   spinner.addEventListener('finished', function(e) { //listen for when it's done spinning
@@ -443,15 +444,12 @@ function main() {
   }
   //END VECTOR FUNCTIONS-----------------------------------------------------------
 
-  var bounds = spinner.getBoundingClientRect(); //get CSS bounds of the object
-  center = new Point((bounds.left + (spinner.offsetWidth / 2)), (bounds.top + (spinner.offsetHeight / 2)));
+  //center = new Point((bounds.left + (spinner.offsetWidth / 2)), (bounds.top + (spinner.offsetHeight / 2)));
   window.addEventListener('resize', function(e) {
     //this center needs to technically be recalculated every time the window is redrawn - like on flow changes or some such.
     //for now I just use resize. I don't know of any working repaint events.
-    bounds = spinner.getBoundingClientRect(); //get CSS bounds of the object
-    center = new Point((bounds.left + (spinner.offsetWidth / 2)), (bounds.top + (spinner.offsetHeight / 2)));
+    setSpinnerPos();
   });
-  center = new Point((bounds.left), (bounds.top + (spinner.offsetHeight / 2)));
 
   if (typeof window.ontouchstart !== 'undefined') { //if on mobile device
     spinner.addEventListener('touchstart', tap);
@@ -463,6 +461,23 @@ function main() {
     if (Math.abs(a) > 360) a = a % 360
     spinner.style.transform = 'rotateZ(' + (-a) + 'deg)';
     rotation = -a;
+  }
+
+  function setSpinnerPos() {
+    var temp_angle = rotation;
+    rotate(0);
+
+    var bounds = spinner.getBoundingClientRect(); //get CSS bounds of the object
+    center = new Point((bounds.left + (spinner.offsetWidth * 0.78)), (bounds.top + (spinner.offsetHeight / 2)));
+    $("#test").position({
+      my: "center",
+      at: "center+10% top+22%",
+      of: $("#Record"),
+      collision: "flip"
+    })
+
+    rotate(temp_angle);
+
   }
 
   //on tap set initial variable values, launch tracker
