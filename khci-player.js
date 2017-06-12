@@ -25,7 +25,13 @@ $(document).ready(function() {
 
   for (i = 0; i < songs.length; i++) {
     title_list.push(songs[i]["title"]);
+    if (songs[i]["eng_title"] != '') {
+      title_list.push(songs[i]["eng_title"]);
+    }
     singer_list.push(songs[i]["singer"]);
+    if (songs[i]["eng_singer"] != '') {
+      singer_list.push(songs[i]["eng_singer"]);
+    }
   }
   singer_list = singer_list.reduce(function(a, b) {
     if (a.indexOf(b) < 0) a.push(b);
@@ -50,7 +56,7 @@ $(document).ready(function() {
     },
     select: function(event, ui) {
       for (i = 0; i < songs.length; i++) {
-        if (ui.item.value == songs[i]["title"]) {
+        if (ui.item.value == songs[i]["title"] || ui.item.value == songs[i]["eng_title"]) {
           if (confirm(songs[i]["title"] + "을/를 재생 목록에 추가하시겠습니까?")) {
             document.getElementById("playlist").innerHTML +=
               '<img id="song" data-selector=' + play_list.length + ' src=' + songs[i]["image"] + ' draggable="true" style="border-bottom: 5px solid #fff" title="' + songs[i]["title"] + '">';
@@ -60,7 +66,7 @@ $(document).ready(function() {
           } else {
             $("#search_input").val('')
           }
-        } else if (ui.item.value == songs[i]["singer"]) {
+        } else if (ui.item.value == songs[i]["singer"] || ui.item.value == songs[i]["eng_singer"]) {
           if (confirm(songs[i]["singer"] + "의 앨범 <" + songs[i]["album"] + ">의 모든 노래를 재생 목록에 추가하시겠습니까?")) {
             for (j = 0; j < songs.length; j++) {
               if (songs[i]["album"] == songs[j]["album"]) {
@@ -89,14 +95,14 @@ $(document).ready(function() {
     var $li = $('<li>'),
       $img = $('<img>');
     for (i = 0; i < songs.length; i++) {
-      if (item.value == songs[i]["title"]) {
+      if (item.value == songs[i]["title"] || item.value == songs[i]["eng_title"]) {
         $img.attr({
           src: songs[i]["image"],
           style: 'width : 80px; height : 80px'
         });
         $li.append('<a href="#">');
         $li.find('a').append($img).append(songs[i]['title'])
-      } else if (item.value == songs[i]["singer"]) {
+      } else if (item.value == songs[i]["singer"] || item.value == songs[i]["eng_singer"]) {
         $img.attr({
           src: songs[i]["image"],
           style: 'width : 80px; height : 80px'
