@@ -14,7 +14,6 @@
 	<script src="./jquery-3.2.1.min.js"></script>
 	<script src="./khci-player.js"></script>
 	<script src="./songs.js"></script>
-	<script src="./zoomer.js"></script>
 	<script src="jquery/js/jquery-1.9.0.min.js"></script>
 	<script src="jquery/js/jquery-ui-1.10.0.custom.min.js"></script>
 	<!--<br/>
@@ -88,24 +87,22 @@
 		ev.preventDefault();
 	}
 </script>
+<script type="text/javascript" src="zoomer.js"></script> 
 <script type="text/javascript">
-$(document).ready(function(){  
-  main();
-  
+$(document).ready(function(){
+	main();
+  $('.thumb').html("");
+  for(var i=0 ; i < songs.length ; i++){
+    $('.thumb').append('<li><a href="#"><img src="'+songs[i].image+'" alt="'+songs[i].title+'" /></a></li>');
+  }
 	$('#square').click(function(){
     	$('.library').toggle();
     	$('.playlist').toggle();
     	$('.player').toggle();
     	$('#vol_control').toggle();
 	});
-  
-  var play_list = [];
-  
-  $('.thumb').html("");
-  for(var i=0 ; i < songs.length ; i++){
-      $('.thumb').append('<li><a href="#"><img src="'+songs[i].image+'" alt="'+songs[i].title+'" /></a></li>');
-  }
-  $('ul.thumb li').Zoomer({speedView:200,speedRemove:400,altAnim:true,speedTitle:400,debug:false});
+	var play_list = [];
+ 	$('ul.thumb li').Zoomer({speedView:200,speedRemove:400,altAnim:true,speedTitle:400,debug:false});
 });
 </script>
 </html>
