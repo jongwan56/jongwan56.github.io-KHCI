@@ -1,4 +1,5 @@
 function main() {
+
   var audio = new Audio();
 
   var title_list = [];
@@ -45,7 +46,15 @@ function main() {
     singer_list = [];
     $("#playlist").html("");
   }
-
+  
+  function initLibrary(){
+    $('.thumb').html("");
+    for(var i=0 ; i < songs.length ; i++){
+      $('.thumb').append('<li><a href="#"><img src="'+songs[i].image+'" alt="'+songs[i].image.title+'" /></a></li>');
+    }
+  }
+  
+  
   $("#search_input").autocomplete({
     minLength: 2,
     source: title_list.concat(singer_list),
@@ -162,7 +171,8 @@ function main() {
   // });
 
   clearPlaylist();
-
+  initLibrary();
+  
   function render(i) {
     if (i == -1) return;
     ctx.clearRect(0, 0, 500, 300);
@@ -613,5 +623,4 @@ function main() {
       }
     }
   }
-
 }

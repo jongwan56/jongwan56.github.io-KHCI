@@ -29,6 +29,16 @@
   float: right;
   color: #ffffff;
 }
+#square {
+  width: 50px;
+  height: 100%;
+  border: 0px;
+  border-left:1px solid #fff;
+  background: #1b5ac2;
+  outline: none;
+  float: right;
+  color: #ffffff;
+}
 
 body {
   background-color: #fff;
