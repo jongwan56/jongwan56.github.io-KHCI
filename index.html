@@ -78,7 +78,7 @@
 			<button class="play" id="stop">stop</button> -->
 		</div>
 		<div>
-			<input id="vol_control" type="range" min="0" max="100" step="1">
+			<input id="vol_control" type="range" min="0" max="100" step="1" hidden="true">
 		</div>
 	</div>
 </body>
@@ -94,6 +94,7 @@ $(document).ready(function(){
     	$('.library').toggle();
     	$('.playlist').toggle();
     	$('.player').toggle();
+    	$('#vol_control').toggle();
 	});
 });
 </script>
