@@ -95,12 +95,7 @@ $(document).ready(function(){
   for(var i=0 ; i < songs.length ; i++){
     $('.thumb').append('<li><a href="#"><img src="'+songs[i].image+'" alt="'+songs[i].title+'" /></a></li>');
   }
-	$('#square').click(function(){
-    	$('.library').toggle();
-    	$('.playlist').toggle();
-    	$('.player').toggle();
-    	$('#vol_control').toggle();
-	});
+	
 	var play_list = [];
  	$('ul.thumb li').Zoomer({speedView:200,speedRemove:400,altAnim:true,speedTitle:400,debug:false});
 });
