@@ -1,66 +1,80 @@
-.center-div{
-    margin: 0 auto;
-    width: 500px;
+.center-div {
+  margin: 0 auto;
+  width: 500px;
 }
 
 #search_bar {
-  	text-align: center;
-  	height: 40px;
-  	width: 500px;
-  	border: 1px solid #1b5ac2;
-  	background: #ffffff;
+  text-align: center;
+  height: 40px;
+  width: 500px;
+  border: 1px solid #1b5ac2;
+  background: #ffffff;
 }
 
 #search_input {
-    font-size: 16px;
-    width: 325px;
-    padding: 10px;
-    border: 0px;
-    outline: none;
-    float: left;
+  font-size: 16px;
+  width: 325px;
+  padding: 10px;
+  border: 0px;
+  outline: none;
+  float: left;
 }
 
 #search_button {
-  	width: 50px;
-  	height: 100%;
-  	border: 0px;
-  	background: #1b5ac2;
-  	outline: none;
-  	float: right;
-  	color: #ffffff;
+  width: 50px;
+  height: 100%;
+  border: 0px;
+  background: #1b5ac2;
+  outline: none;
+  float: right;
+  color: #ffffff;
 }
 
-body{
-	background-color: #fff;
+body {
+  background-color: #fff;
 }
 
-.playlist{
-	margin-top: 10px;
-	margin-bottom: 10px;
-	height: 165px;
-	width: 500px;
-	white-space: nowrap;
-	overflow: auto;
-}	
-
-.play{
-	font-size: 16px;
-	color: #fff;
-	padding:10px;
-	border:0px;
-	outline:none;
-	background:#1b5ac2;
-	font-family: 'Arbutus', cursive;
+.playlist {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 165px;
+  width: 500px;
+  white-space: nowrap;
+  overflow: auto;
 }
 
-.title{
-	font-size: 24px;
-	color: #1b5ac2;
-	margin-left: 5px;
-	font-family: 'Arbutus', cursive;
+.play {
+  font-size: 16px;
+  color: #fff;
+  padding: 10px;
+  border: 0px;
+  outline: none;
+  background: #1b5ac2;
+  font-family: 'Arbutus', cursive;
 }
 
-#song{
-	width: 140px;
-	height: 140px;
+.title {
+  font-size: 24px;
+  color: #1b5ac2;
+  margin-left: 5px;
+  font-family: 'Arbutus', cursive;
+}
+
+#song {
+  width: 140px;
+  height: 140px;
+}
+
+.block {
+  /*-ms-transform: rotate(-72deg);
+  -webkit-transform: rotate(-72deg);
+  transform: rotate(-72deg);*/
+  -ms-transform-origin: 76% 50%; /* IE 9 */
+  -webkit-transform-origin: 76% 50%; /* Chrome, Safari, Opera */
+  transform-origin: 76% 50%;
+  /*z-index: 0;*/
+}
+
+#Record {
+  z-index: 3;
 }
