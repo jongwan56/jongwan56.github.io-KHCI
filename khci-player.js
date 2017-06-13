@@ -637,6 +637,9 @@ function main() {
     	$('.playlist').toggle();
     	$('.player').toggle();
     	$('#vol_control').toggle();
+      if ($('#square').html() == '<i class="fa fa-angle-up" aria-hidden="true"></i>'){
+        $('#square').html('<i class="fa fa-angle-down" aria-hidden="true"></i>')
+      } else $('#square').html('<i class="fa fa-angle-up" aria-hidden="true"></i>');
       setSpinnerPos();
 	});
 }
