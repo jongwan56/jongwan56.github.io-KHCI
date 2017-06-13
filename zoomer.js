@@ -52,7 +52,7 @@
 
    function unfoldImage(elem) {
     $(elem).css({
-     //'z-index': '10'
+     'z-index': '10'
     });
     $(elem).addClass("hover").stop().animate({
      marginTop: '-0px',
@@ -70,9 +70,9 @@
       $(elem).prepend('<span class="title">' + a + '</span>');
       $('.title').animate({
        marginLeft: '0px',
-       marginTop: '95px'
+       marginTop: '75px'
       }, d.speedTitle).css({
-       'z-index': '11',
+       'z-index': '10',
        'position': 'absolute',
        'float': 'left'
       })
@@ -92,7 +92,7 @@
      height: '95px',
      padding: '0px'
     }, d.speedRemove);
-    $(elem).closest('li').find('.title').remove()
+    $(elem).find('.title').remove()
    }
 
    $(this).find('div').mouseover(function() {

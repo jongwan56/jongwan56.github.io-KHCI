@@ -22,8 +22,7 @@ ul.thumb li div img {
 	width: 95px; 
 	height: 95px;
 	overflow: hidden;
-	border: 0.5px solid #ffffff;
-	border-left: 0.5px solid #202020;
+	border: 0;
 	padding-left: 4px;
 	background: #505050;
 	float: left;
